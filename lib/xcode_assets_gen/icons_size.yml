@@ -1,0 +1,138 @@
+---
+- name: ipad-ios7+
+  desc: iPad iOS 7.0 and Later
+  idiom: ipad
+  icons:
+    - size: 29x29
+      scale: 1x
+    - size: 29x29
+      scale: 2x
+    - size: 40x40
+      scale: 1x
+    - size: 40x40
+      scale: 2x
+    - size: 76x76
+      scale: 1x
+    - size: 76x76
+      scale: 2x
+    - size: 83.5x83.5
+      scale: 2x
+- name: ipad-ios6.1-
+  desc: iPad iOS 6.1 and Prior
+  idiom: ipad
+  icons:
+    - size: 29x29
+      scale: 1x
+    - size: 29x29
+      scale: 2x
+    - size: 50x50
+      scale: 1x
+    - size: 50x50
+      scale: 2x
+    - size: 72x72
+      scale: 1x
+    - size: 72x72
+      scale: 2x
+
+- name: iphone-ios7+
+  desc: iPhone iOS 7.0 and Later
+  idiom: iphone
+  icons:
+    - size: 29x29
+      scale: 2x
+    - size: 29x29
+      scale: 3x
+    - size: 40x40
+      scale: 2x
+    - size: 40x40
+      scale: 3x
+    - size: 60x60
+      scale: 2x
+    - size: 60x60
+      scale: 3x
+- name: iphone-ios6.1-
+  desc: iPhone iOS 6.1 and Prior
+  idiom: iphone
+  icons:
+    - size: 29x29
+      scale: 1x
+    - size: 29x29
+      scale: 2x
+    - size: 57x57
+      scale: 1x
+    - size: 57x57
+      scale: 2x
+
+- name: mac
+  desc: MAC ALL
+  idiom: mac
+  icons:
+    - size: 16x16
+      scale: 1x
+    - size: 16x16
+      scale: 2x
+    - size: 32x32
+      scale: 1x
+    - size: 32x32
+      scale: 2x
+    - size: 128x128
+      scale: 1x
+    - size: 128x128
+      scale: 2x
+    - size: 256x256
+      scale: 1x
+    - size: 256x256
+      scale: 2x
+    - size: 512x512
+      scale: 1x
+    - size: 512x512
+      scale: 2x
+
+- name: car
+  desc: Car ALL
+  idiom: car
+  icons:
+    - size: 60x60
+      scale: 1x
+    - size: 60x60
+      scale: 2x
+
+- name: watchall
+  desc: watchOS ALL versions
+  idiom: watch
+  icons:
+    - size: 24x24
+      scale: 2x
+      role: notificationCenter
+      subtype: 38mm
+    - size: 27.5x27.5
+      scale: 2x
+      role: notificationCenter
+      subtype: 42mm
+    - size: 29x29
+      scale: 2x
+      role: companionSettings
+    - size: 29x29
+      scale: 3x
+      role: companionSettings
+    - size: 40x40
+      scale: 2x
+      role: appLauncher
+      subtype: 38mm
+    - size: 86x86
+      scale: 2x
+      role: quickLook
+      subtype: 38mm
+    - size: 98x98
+      scale: 2x
+      role: quickLook
+      subtype: 42mm
+
+- name: watch1
+  desc: watchOS 1.0 Specific
+  idiom: watch
+  icons:
+    - size: 44x44
+      scale: 2x
+      role: longLook
+      subtype: 42mm
