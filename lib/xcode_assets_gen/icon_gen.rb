@@ -84,14 +84,11 @@ module XcodeAssetsGen
   end
 end
 
-module XcodeAssetsGen
-  class LaunchImageGen
+# icon_gen =  XcodeAssetsGen::IconGen.new
+# icon_gen.icon_set_list = ['ipad-ios7+', 'iphone-ios7+']
+# icon_gen.assets_path = "/Users/whl/Documents/Assets.xcassets/"
+# icon_gen.o_icon_path = "/Users/whl/Documents/icon.png"
+# icon_gen.gen_icons
 
-  end
-end
-
-icon_gen =  XcodeAssetsGen::IconGen.new
-icon_gen.icon_set_list = ['ipad-ios7+', 'iphone-ios7+']
-icon_gen.assets_path = "/Users/whl/Documents/Assets.xcassets/"
-icon_gen.o_icon_path = "/Users/whl/Documents/icon.png"
-icon_gen.gen_icons
+launch_gen =  XcodeAssetsGen::LaunchImageGen.new
+launch_gen.detect_launch_images("/Users/whl/Documents/Assets.xcassets/", "/Users/whl/Documents/launchimage")
