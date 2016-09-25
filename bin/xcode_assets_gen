@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "xcode_assets_gen"
+
+XcodeAssetsGen::CLI.new.main(ARGV)

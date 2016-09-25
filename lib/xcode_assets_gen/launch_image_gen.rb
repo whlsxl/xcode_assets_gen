@@ -2,10 +2,10 @@ require "mini_magick"
 require 'yaml'
 require 'json'
 require 'fileutils'
+require 'rainbow'
 
 module XcodeAssetsGen
   class LaunchImageGen
-    attr_accessor :assets_path, :launch_image_path
 
     def load_config
       return YAML.load_file(File.expand_path('../launch_image_size.yml', __FILE__))
@@ -37,24 +37,41 @@ module XcodeAssetsGen
       datas
     end
 
-    def detect_launch_images assets_path, launch_image_path
+    def gen_launch_images assets_path, launch_image_path
+      puts Rainbow("Start generate launch images").bright
       config = load_config
       datas = []
-      launch_image_asset_path = File.join(assets_path, "LaunchImage.launchimage")
+      asset_launch_path = "LaunchImage.launchimage"
+      launch_image_asset_path = File.join(assets_path, asset_launch_path)
+      FileUtils::mkdir_p launch_image_asset_path
       Dir.glob(File.join(launch_image_path, "*.png")) do |file|
         image = MiniMagick::Image.open(file)
         size = "#{image.width}x#{image.height}"
         filename = "launch_image#{size}.png"
-        if get_launch_items(config, size)
+
+        if get_launch_items(config, size).count != 0
           FileUtils.cp(file, File.join(launch_image_asset_path, filename))
+          datas = set_launch_to_array(datas, config, size, filename)
+          puts Rainbow("Find #{File.basename(file)} size is #{size} CP TO #{asset_launch_path}/#{filename}").green
+        else
+          puts Rainbow("Find #{File.basename(file)} size is #{size} not a launch image").yellow
         end
-        datas = set_launch_to_array(datas, config, size, filename)
       end
-      content = datas.map { |item| item["data"] }
+      content = {
+        "images": datas.map { |item| item["data"] },
+        "info": {
+          "version": 1,
+          "author": "xcode"
+        }
+      }
       File.open(File.join(launch_image_asset_path, "Contents.json"), "w") do |f|
         f.write(content.to_json)
       end
+      puts Rainbow("Finish generate LaunchImages").green
     end
 
   end
 end
+
+# launch_gen =  XcodeAssetsGen::LaunchImageGen.new
+# launch_gen.gen_launch_images("/Users/whl/Documents/Assets.xcassets/", "/Users/whl/Documents/ip_pro/rGuideMetro/rGuideMetro/Localized/whmtr")
